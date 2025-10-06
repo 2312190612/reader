@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/reader  # 数据库文件会出现在项目根目录 /data 文件夹
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update          # 第一次启动自动建表，第二天改 none 防手抖
+    show-sql: true              # 控制台能看到 SQL，调错用
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html      # 浏览器入口
+  api-docs:
+    path: /api-docs
+
+logging:
+  level:
+    com.example.reader: debug
